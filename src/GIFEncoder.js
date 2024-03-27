@@ -130,6 +130,7 @@ class GIFEncoder extends EventEmitter {
   }
 
   analyzePixels() {
+    this.usedEntry = []
     const w = this.width
     const h = this.height
 
@@ -251,7 +252,7 @@ class GIFEncoder extends EventEmitter {
     var len = this.colorTab.length
 
     for (var i = 0; i < len; ) {
-      var index = i / 3
+      var index = (i + 1) / 3
       var dr = r - (this.colorTab[i++] & 0xff)
       var dg = g - (this.colorTab[i++] & 0xff)
       var db = b - (this.colorTab[i++] & 0xff)

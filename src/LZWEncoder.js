@@ -49,6 +49,9 @@ function LZWEncoder(width, height, pixels, colorDepth) {
   var accum = new Uint8Array(256)
   var htab = new Int32Array(HSIZE)
   var codetab = new Int32Array(HSIZE)
+  var remaining = 0
+  var curPixel = 0
+  var n_bits = 0
 
   var cur_accum,
     cur_bits = 0
